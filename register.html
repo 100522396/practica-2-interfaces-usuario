@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mochileros Sin Fronteras</title>
+    <!-- Icons and styles -->
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="style/styles_register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Top bar -->
+    <header>
+      <h2>Mochileros Sin Fronteras</h2>
+      <!-- Navigation bar -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html">Experiencias</a></li>
+          <li><a href="register.html">Registro</a></li>
+          <li><a href="index.html">Foro</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <!-- Logo and language selector -->
+      <div class="nav-container">
+        <img
+          src="img/logo.png"
+          alt="Logo Mochileros Sin Fronteras"
+          class="logo"
+        />
+        <!-- Language selector -->
+        <select name="language" class="language-select">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="de">DE</option>
+        </select>
+      </div>
+    </header>
+    <main>
+      <!-- Registration box -->
+      <section class="register-box">
+        <h1>Registro de nuevos usuarios</h1>
+        <div class="grid-2x2">
+          <input type="text" placeholder="Nombre" />
+          <input type="text" placeholder="Apellidos" />
+          <input type="email" placeholder="Correo electrónico" />
+          <input type="email" placeholder="Confirmar Correo" />
+        </div>
+
+        <!-- Date of birth -->
+        <div class="date-block">
+          <label for="birthdate">Fecha de nacimiento</label>
+          <div class="date-input">
+            <input id="birthdate" type="date" />
+          </div>
+        </div>
+
+        <!-- Username and password -->
+        <div class="login-block">
+          <input type="text" placeholder="Usuario..." />
+          <input type="password" placeholder="Contraseña..." />
+        </div>
+
+        <!-- Profile picture -->
+        <div class="image-block">
+          <label for="profile-pic">Subir imagen de perfil</label>
+          <button id="profile-pic">Examinar...</button>
+        </div>
+
+        <!-- Privacy policy -->
+        <div class="register-actions">
+          <label for="privacy"
+            >Acepto la <a href="index.html">Política de privacidad</a></label
+          >
+          <input type="checkbox" id="privacy" />
+          <!-- Save button -->
+          <a href="logged.html" class="save-button">Guardar Datos y Acceder</a>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <div class="first-footer-row">
+        <p>@ 2025 Mochileros sin fronteras</p>
+        <div class="footer-links">
+          <a href="index.html">Sobre nosotros.</a>
+          <a href="index.html">Política de privacidad.</a>
+          <a href="index.html">Ayuda</a>
+        </div>
+
+        <div class="footer-icons">
+          <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+          <a href="https://tiktok.com"><i class="fab fa-tiktok"></i></a>
+          <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Newsletter mini form -->
+      <div class="last-footer-row">
+        <form class="newsletter">
+          <label for="nl-email">Suscríbete a la newsletter</label>
+          <input
+            id="nl-email"
+            type="email"
+            placeholder="Tu correo electrónico"
+          />
+          <button type="submit">Suscribirme</button>
+        </form>
+      </div>
+    </footer>
+  </body>
+</html>

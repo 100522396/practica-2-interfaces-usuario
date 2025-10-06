@@ -1,0 +1,153 @@
+@import url("./styles.css");
+
+html {
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Registration box */
+.register-box {
+  width: 100%;
+  max-width: 800px; /* max width for readability */
+  min-height: 60vh; /* ensures it occupies enough space */
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid #000;
+  padding: 1.5rem;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Date block */
+.date-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 1rem 0;
+}
+
+.date-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Login block */
+.login-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Image block */
+.image-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 1rem 0;
+}
+
+.image-block button {
+  width: 10rem;
+}
+
+/* Actions section */
+.register-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* Save button */
+.save-button {
+  display: flex;
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  justify-self: flex-end;
+  width: 10rem;
+  margin-top: 1rem;
+  color: black;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.save-button:hover {
+  transform: scale(1.05);
+}
+
+input,
+button {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+button:hover {
+  border-color: #0a7c5a;
+  box-shadow: 0 0 6px rgba(10, 124, 90, 0.4);
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register-box {
+    width: 80%;
+  }
+
+  .grid-2x2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .date-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

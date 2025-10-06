@@ -1,0 +1,115 @@
+@import url("./styles.css");
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 0;
+}
+
+.buy-main {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+#pack-asia-desc {
+  margin-bottom: 5rem;
+}
+
+#detailed-description {
+  color: white;
+  margin-top: 3rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border: 3px solid white;
+  border-radius: 20px;
+}
+
+#detailed-description h3 {
+  font-size: 2rem;
+}
+
+/* Right Section */
+
+aside {
+  border: 2px solid black;
+  border-radius: 3rem;
+}
+
+aside h2 {
+  font-size: 3rem;
+  padding: 0;
+}
+
+/* Form */
+.buy-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+.buy-form input {
+  height: 3rem;
+  border: 2px solid #ccc;
+  border-radius: 1rem;
+}
+#card-type {
+  height: 2rem;
+  width: fit-content;
+  border-radius: 10px;
+  background: #fbfcff;
+}
+
+/* Last row */
+.card-expire-cvv {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.date-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Buttons */
+.form-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+.buy-form a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  background: white;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.buy-form a:hover {
+  background: rgb(234, 244, 225);
+}
+
+@media (max-width: 768px) {
+  .buy-main {
+    grid-template-columns: 1fr;
+  }
+}
