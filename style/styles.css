@@ -95,7 +95,7 @@ nav ul li a:hover {
 }
 
 /* Highlighted packs section */
-.highlighted-section {
+.carrusel-section {
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -108,7 +108,7 @@ nav ul li a:hover {
   background-position: center;
   border-bottom: 8px solid rgba(0, 0, 0, 0.8);
 }
-.highlighted-section h2 {
+.carrusel-section h2 {
   font-size: 2.5rem;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5), -1px 1px 10px rgba(0, 0, 0, 0.5),
     1px -1px 10px rgba(0, 0, 0, 0.5), -1px -1px 10px rgba(0, 0, 0, 0.5);
@@ -121,7 +121,7 @@ nav ul li a:hover {
   width: 100%;
 }
 
-.highlighted i {
+.highlighted button {
   color: black;
   display: flex;
   justify-content: center;
@@ -134,7 +134,7 @@ nav ul li a:hover {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-.highlighted i:hover {
+.highlighted button:hover {
   transform: scale(1.1);
 }
 

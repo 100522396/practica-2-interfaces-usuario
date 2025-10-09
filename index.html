@@ -50,11 +50,13 @@
     <main>
       <!-- Left section -->
       <div id="left-section">
-        <section class="highlighted-section">
+        <section class="carrusel-section">
           <h2>Comparte y descubre viajes mochileros de larga distancia</h2>
           <!-- Highlighted content -->
           <div class="highlighted">
-            <i class="fa fa-angle-left"></i>
+            <button type="button" class="nav prev" aria-label="Anterior">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>
+            </button>
             <div class="highlighted-card">
               <div id="asia-pack-label">
                 <h3>Pack Sudeste Asiático</h3>
@@ -65,7 +67,9 @@
               </p>
               <a href="buy.html" class="buy-button">Comprar</a>
             </div>
-            <i class="fa fa-angle-right"></i>
+            <button type="button" class="nav prev" aria-label="Anterior">
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </button>
           </div>
         </section>
         <!-- Experiences carousel -->
@@ -148,16 +152,8 @@
       <aside>
         <!-- Login/Register form -->
         <form action="index.html" class="login-form">
-          <input
-            type="text"
-            placeholder="Usuario..."
-            id="user"
-          />
-          <input
-            type="text"
-            placeholder="Contraseña..."
-            id="password"
-          />
+          <input type="text" placeholder="Usuario..." id="user" />
+          <input type="text" placeholder="Contraseña..." id="password" />
           <div class="remember">
             <input type="checkbox" id="remember" name="remember" />
             <label for="remember">Recordar credenciales</label>
