@@ -19,11 +19,7 @@ body {
   padding: 1.5rem;
 }
 
-#pack-asia-desc {
-  margin-bottom: 5rem;
-}
-
-#detailed-description {
+.pack-details {
   color: white;
   margin-top: 3rem;
   padding: 1rem;
@@ -35,10 +31,24 @@ body {
   border-radius: 20px;
 }
 
-#detailed-description h3 {
+#pack-title {
   font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
+#pack-desc {
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  white-space: pre-wrap;
+}
+
+#pack-price {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #0ea5e9;
+}
 /* Right Section */
 
 aside {
