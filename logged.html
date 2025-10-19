@@ -15,10 +15,6 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="scripts/main.js"></script>
-
   </head>
 
   <body>
@@ -54,22 +50,53 @@
     <main>
       <!-- Left section -->
       <div id="left-section">
-        <section class="highlighted-section">
+        <section class="carrusel-section">
           <h2>Comparte y descubre viajes mochileros de larga distancia</h2>
           <!-- Highlighted content -->
           <div class="highlighted">
-            <i class="fa fa-angle-left"></i>
-            <div class="highlighted-card">
-              <div id="asia-pack-label">
+            <button type="button" class="nav prev" aria-label="Anterior">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>
+            </button>
+
+            <!-- C1 -->
+            <div class="highlighted-card" data-pack="asia">
+              <div class="pack-label">
                 <h3>Pack Sudeste Asiático</h3>
-                <p id="price-tag">€ 600</p>
+                <p class="price-tag">€ 600</p>
               </div>
-              <p id="asia-pack-desc">
+              <p class="pack-desc">
                 Vietnam & Camboya: buses, hostales y guía de visados
               </p>
               <a href="buy.html" class="buy-button">Comprar</a>
             </div>
-            <i class="fa fa-angle-right"></i>
+
+            <!-- C2 -->
+            <div class="highlighted-card" data-pack="europe">
+              <div class="pack-label">
+                <h3>Pack Europa Central</h3>
+                <p class="price-tag">€ 850</p>
+              </div>
+              <p class="pack-desc">
+                Alemania y Polonia: trenes, hostels y free tours
+              </p>
+              <a href="buy.html" class="buy-button">Comprar</a>
+            </div>
+
+            <!-- C3 -->
+            <div class="highlighted-card" data-pack="southamerica">
+              <div class="pack-label">
+                <h3>Pack Sudamérica Oeste</h3>
+                <p class="price-tag">€ 900</p>
+              </div>
+              <p class="pack-desc">
+                Perú, Bolivia y Chile: rutas en bus, hostales y excursiones
+              </p>
+              <a href="buy.html" class="buy-button">Comprar</a>
+            </div>
+
+            <button type="button" class="nav next" aria-label="Siguiente">
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </button>
           </div>
         </section>
         <!-- Experiences carousel -->
@@ -237,5 +264,7 @@
         </form>
       </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
