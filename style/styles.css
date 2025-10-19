@@ -138,9 +138,9 @@ nav ul li a:hover {
   transform: scale(1.1);
 }
 
-.highlighted-card {
+.highlighted-card { 
   color: #ffffff;
-  display: flex;
+  display: none;                /* ocultas por defecto */
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
@@ -154,17 +154,21 @@ nav ul li a:hover {
   margin-bottom: 0;
 }
 
-#asia-pack-label {
+.highlighted-card.active { 
+  display: flex;
+}
+
+.pack-label {
   width: 100%;
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
   align-items: center;
 }
-#asia-pack-label h3 {
+ .pack-label h3 {
   font-size: 1.8rem;
 }
-#price-tag {
+ .price-tag {
   display: inline;
   background: linear-gradient(135deg, #7ddcc9, #37c4a8);
   white-space: nowrap;
@@ -177,12 +181,13 @@ nav ul li a:hover {
   position: relative;
   text-align: center;
   transition: transform 0.2s;
+  margin: 20px;
 }
 
-#asia-pack-label p:hover {
+.pack-label p:hover {
   transform: scale(1.05);
 }
-#asia-pack-desc {
+.pack-desc {
   font-size: 1.1rem;
 }
 
