@@ -180,13 +180,13 @@
         <!-- Login/Register form -->
         <form action="index.html" class="login-form">
           <input type="text" placeholder="Usuario..." id="user" />
-          <input type="text" placeholder="Contraseña..." id="password" />
+          <input type="password" placeholder="Contraseña..." id="password" />
           <div class="remember">
             <input type="checkbox" id="remember" name="remember" />
             <label for="remember">Recordar credenciales</label>
           </div>
           <div class="login-buttons">
-            <a href="logged.html" id="btn-login" class="btn">Iniciar sesión</a>
+            <a href="#" id="btn-login" class="btn" type="button">Iniciar sesión</a>
             <a href="register.html" id="btn-register" class="btn"
               >Registrarse</a
             >
@@ -245,8 +245,42 @@
         </form>
       </div>
     </footer>
+
+    <div
+      id="login-error-modal"
+      class="hidden"
+      aria-hidden="true"
+      style="
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 1rem;
+        z-index: 9999;
+      "
+    >
+      <div
+        style="
+          width: 100%;
+          max-width: 360px;
+          background: #fff;
+          border-radius: 14px;
+          padding: 1rem;
+          border: 1px solid #e5e7eb;
+        "
+      >
+        <h3 style="margin: 0 0 0.5rem 0">Inicio de sesión</h3>
+        <p style="margin: 0 0 1rem 0">Usuario o contraseña no válidos.</p>
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem">
+          <button id="login-error-close" style="height: 38px">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
     <!--JS-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="scripts/auth.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>

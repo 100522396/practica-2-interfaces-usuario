@@ -52,13 +52,14 @@
     </header>
     <main>
       <!-- Registration box -->
-      <section class="register-box">
+      <form id="register-form" class="register-box">
         <h1>Registro de nuevos usuarios</h1>
+
         <div class="grid-2x2">
-          <input type="text" placeholder="Nombre" />
-          <input type="text" placeholder="Apellidos" />
-          <input type="email" placeholder="Correo electrónico" />
-          <input type="email" placeholder="Confirmar Correo" />
+          <input type="text" id="reg-name" placeholder="Nombre" />
+          <input type="text" id="reg-surname" placeholder="Apellidos" />
+          <input type="email" id="reg-email" placeholder="Correo electrónico" />
+          <input type="email" id="reg-email2" placeholder="Confirmar Correo" />
         </div>
 
         <!-- Date of birth -->
@@ -71,26 +72,32 @@
 
         <!-- Username and password -->
         <div class="login-block">
-          <input type="text" placeholder="Usuario..." />
-          <input type="password" placeholder="Contraseña..." />
+          <input type="text" id="reg-username" placeholder="Usuario..." />
+          <input
+            type="password"
+            id="reg-password"
+            placeholder="Contraseña..."
+          />
         </div>
 
         <!-- Profile picture -->
         <div class="image-block">
-          <label for="profile-pic">Subir imagen de perfil</label>
-          <button id="profile-pic">Examinar...</button>
+          <label for="reg-avatar">Subir imagen de perfil</label>
+          <input type="file" id="reg-avatar" accept=".webp,.png,.jpg,.jpeg"/>
         </div>
 
         <!-- Privacy policy -->
         <div class="register-actions">
-          <label for="privacy"
-            >Acepto la <a href="index.html">Política de privacidad</a></label
-          >
+          <label for="privacy">
+            Acepto la <a href="index.html">Política de privacidad</a>
+          </label>
           <input type="checkbox" id="privacy" />
           <!-- Save button -->
-          <a href="logged.html" class="save-button">Guardar Datos y Acceder</a>
+          <button type="submit" class="save-button" id="btn-register" disabled>
+            Guardar Datos y Acceder
+          </button>
         </div>
-      </section>
+      </form>
     </main>
     <!-- Footer -->
     <footer>
@@ -121,5 +128,11 @@
         </form>
       </div>
     </footer>
+
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/register.js"></script>
+
   </body>
 </html>

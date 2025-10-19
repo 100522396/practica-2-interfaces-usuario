@@ -1,3 +1,5 @@
+// --- Carrousel functionality ---
+
 (function initCarousel() {
   // Find the carousel container
   const container = document.querySelector(".highlighted");
@@ -98,11 +100,11 @@
   const price = localStorage.getItem("selectedPackPrice") || "";
 
   let pack;
-if (id) {
-  pack = PACKS[id];
-} else {
-  pack = null;
-}
+  if (id) {
+    pack = PACKS[id];
+  } else {
+    pack = null;
+  }
 
   if (!pack) {
     return;
@@ -112,3 +114,72 @@ if (id) {
   descEl.textContent = pack.longDesc;
   priceEl.textContent = price;
 })();
+
+// -- End of Carrousel functionality ---
+
+// --- Login functionality ---
+
+function showLoginError(open) {
+  var modal = document.getElementById("login-error-modal");
+  if (!modal) {
+    alert("Usuario o contraseña no válidos.");
+    return;
+  }
+  if (open) {
+    modal.classList.remove("hidden");
+    modal.setAttribute("aria-hidden", "false");
+  } else {
+    modal.classList.add("hidden");
+    modal.setAttribute("aria-hidden", "true");
+  }
+}
+
+var form = document.querySelector(".login-form");
+var userInput = document.getElementById("user");
+var passInput = document.getElementById("password");
+var btnLogin = document.getElementById("btn-login");
+var btnClose = document.getElementById("login-error-close");
+
+if (btnClose) {
+  btnClose.addEventListener("click", function () {
+    showLoginError(false);
+  });
+}
+
+// Click "Iniciar sesión"
+if (btnLogin) {
+  btnLogin.addEventListener("click", function (ev) {
+    ev.preventDefault();
+
+    var username = userInput ? userInput.value.trim() : "";
+    var password = passInput ? passInput.value : "";
+
+    if (!username || !password) {
+      showLoginError(true);
+      return;
+    }
+
+    // Buscar usuario registrado que coincida (por username o email)
+    var users = Auth.getUsers();
+    var found = null;
+    for (var i = 0; i < users.length; i++) {
+      var u = users[i];
+      var loginOk = u.username === username || u.email === username;
+      var passOk = u.password === password;
+      if (loginOk && passOk) {
+        found = u;
+        break;
+      }
+    }
+
+    if (!found) {
+      showLoginError(true);
+      return;
+    }
+
+    // Redirect
+    Auth.setAuthUser(found);
+    window.location.href = "logged.html";
+  });
+}
+

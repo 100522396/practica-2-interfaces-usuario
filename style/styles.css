@@ -522,6 +522,10 @@ footer .footer-links a:hover {
     gap: 20px;
   }
 }
+/* For login error window */
+.hidden {
+  display: none !important;
+}
 
 /* Mobile (small screens) */
 @media (max-width: 600px) {
@@ -559,3 +563,4 @@ footer .footer-links a:hover {
     flex-direction: column;
   }
 }
+
