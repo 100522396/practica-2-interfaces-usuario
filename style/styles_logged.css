@@ -6,30 +6,6 @@
   flex-direction: column;
 }
 
-.user-actions img {
-  max-width: 5rem;
-  border: 2px solid black;
-  border-radius: 5px;
-}
-.user-actions {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.user-actions a {
-  padding: 0.5rem;
-  text-decoration: none;
-  color: #000;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 0.33rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-.user-actions a:hover {
-  transform: scale(1.05);
-}
 
 /* Search Section */
 

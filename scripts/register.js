@@ -11,7 +11,6 @@ function isValidSurname(s) {
 }
 
 // AÑADIR CALENDARIO POPUP
-/*
 function isRealBirthdate(iso) {
   if (!iso) return false;
   var d = new Date(iso);
@@ -21,7 +20,6 @@ function isRealBirthdate(iso) {
   var age = (today - d) / (1000 * 60 * 60 * 24 * 365.25);
   return age >= 12 && age <= 120;
 }
-  */
 
 function isValidLogin(u) {
   var v = (u || "").trim();

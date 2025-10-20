@@ -146,7 +146,6 @@ if (btnClose) {
   });
 }
 
-// Click "Iniciar sesión"
 if (btnLogin) {
   btnLogin.addEventListener("click", function (ev) {
     ev.preventDefault();
@@ -159,7 +158,7 @@ if (btnLogin) {
       return;
     }
 
-    // Buscar usuario registrado que coincida (por username o email)
+    // Search for user
     var users = Auth.getUsers();
     var found = null;
     for (var i = 0; i < users.length; i++) {
@@ -182,4 +181,23 @@ if (btnLogin) {
     window.location.href = "logged.html";
   });
 }
+
+// --- Logged functionality ---
+
+(function showUsername() {
+  const nameEl = document.getElementById("profile-name");
+  const picEl  = document.getElementById("profile-pic");
+  if (!nameEl) return;
+
+  // Get current user from localStorage
+  const raw = localStorage.getItem("authUser");
+  if (!raw) return;
+
+  const user = JSON.parse(raw);
+
+  // Show username
+  nameEl.textContent = user.username;
+})();
+
+//add picture
 
