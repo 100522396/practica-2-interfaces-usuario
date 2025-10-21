@@ -82,11 +82,9 @@ if (form) {
     var birth    = birthEl ? birthEl.value : "";
     var username = userEl ? userEl.value.trim() : "";
     var password = passEl ? passEl.value : "";
-
-    var avatarFile = null;
-    if (avatarEl && avatarEl.files && avatarEl.files.length > 0) {
-      avatarFile = avatarEl.files[0];
-    }
+    var avatarFile = (avatarEl && avatarEl.files && avatarEl.files.length > 0)
+    ? avatarEl.files[0]
+    : null;
 
     // Validations
     if (name.length < 3) {
@@ -130,8 +128,9 @@ if (form) {
         return;
       }
     }
-
-    // Save new user
+// Leer imagen -> Data URL y guardar
+  var reader = new FileReader();
+  reader.onload = function (e) {
     var newUser = {
       name: name,
       surname: surname,
@@ -139,7 +138,8 @@ if (form) {
       birthdate: birth,
       username: username,
       password: password,
-      createdAt: Date.now()
+      createdAt: Date.now(),          // <-- aquí faltaba una coma
+      avatarDataUrl: e.target.result  // <-- data URL de la imagen
     };
 
     users.push(newUser);
@@ -148,5 +148,10 @@ if (form) {
 
     alert("Registro realizado correctamente.");
     window.location.href = "logged.html";
-  });
+  };
+  reader.onerror = function () {
+    alert("No se pudo leer la imagen. Inténtalo de nuevo.");
+  };
+  reader.readAsDataURL(avatarFile);
+});
 }

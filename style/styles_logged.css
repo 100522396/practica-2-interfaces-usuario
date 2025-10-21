@@ -100,3 +100,45 @@
   border: 1px solid black;
   border-radius: 5px;
 }
+
+.user-info {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+.user-info img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 2px solid #000000;
+  transition: transform 0.2s ease;
+}
+
+.user-info img:hover {
+  transform: scale(1.1);
+}
+
+#profile-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000000;
+}
+
+#btn-logout {
+  text-decoration: none;
+  color: white;
+  background-color: #0078d7;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#btn-logout:hover {
+  background-color: #005ea8;
+  transform: scale(1.05);
+}

@@ -197,6 +197,17 @@ if (btnLogin) {
 
   // Show username
   nameEl.textContent = user.username;
+
+  if (picEl) {
+    if (user.avatarDataUrl) {
+      picEl.src = user.avatarDataUrl;
+      picEl.alt = (user.username || "Usuario") + " - foto de perfil";
+    } else {
+      // Fallback si el usuario aún no tiene imagen
+      picEl.src = "img/default-avatar.png"; // crea este recurso o cambia la ruta
+      picEl.alt = "Foto de perfil por defecto";
+    }
+  }
 })();
 
 //add picture
