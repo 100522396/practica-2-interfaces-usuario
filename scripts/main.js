@@ -205,3 +205,34 @@ if (btnLogin) {
     }
   }
 })();
+
+// --- Logout functionality ---
+(function initLogout() {
+  const btnLogout = document.getElementById("btn-logout");
+  const modal = document.getElementById("logout-modal");
+  const btnConfirm = document.getElementById("confirm-logout");
+  const btnCancel = document.getElementById("cancel-logout");
+
+  if (!btnLogout || !modal) return;
+
+  // Prompt modal when clicling on logout button
+  btnLogout.addEventListener("click", function (ev) {
+    ev.preventDefault();
+    modal.classList.remove("hidden");
+    modal.setAttribute("aria-hidden", "false");
+  });
+
+  // Hide modal if click on cancel
+  btnCancel.addEventListener("click", function () {
+    modal.classList.add("hidden");
+    modal.setAttribute("aria-hidden", "true");
+  });
+
+  // If click on confirm logout and redirecto home
+  btnConfirm.addEventListener("click", function () {
+    localStorage.removeItem("authUser");
+    modal.classList.add("hidden");
+    modal.setAttribute("aria-hidden", "true");
+    window.location.href = "index.html";
+  });
+})();

@@ -180,12 +180,20 @@
         <!-- User information -->
 
         <div class="user-info">
-          <img
-            id="profile-pic"
-            alt="Profile"
-          />
+          <img id="profile-pic" alt="Profile" />
           <span id="profile-name"></span>
           <a href="#" id="btn-logout" class="btn">Cerrar sesión</a>
+        </div>
+
+        <!-- Logout confirmation -->
+        <div id="logout-modal" class="modal hidden" aria-hidden="true">
+          <div class="modal-content">
+            <p>¿Desea cerrar sesión?</p>
+            <div class="modal-buttons">
+              <button id="confirm-logout" class="btn-confirm">Confirmar</button>
+              <button id="cancel-logout" class="btn-cancel">Cancelar</button>
+            </div>
+          </div>
         </div>
 
         <hr />
