@@ -195,7 +195,7 @@ if (btnLogin) {
 
   const user = JSON.parse(raw);
 
-  // Show username
+  // Show username and picture
   nameEl.textContent = user.username;
 
   if (picEl) {
