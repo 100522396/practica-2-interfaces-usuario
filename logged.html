@@ -226,21 +226,29 @@
         <!-- Advice -->
         <div class="advice">
           <h4>Últimos consejos</h4>
-          <ul class="advice-list">
-            <li><a href="#">Cómo ahorrar dinero en hostales</a></li>
-            <li><a href="#">Mejores apps para planear viajes</a></li>
-            <li><a href="#">Visados fáciles en Asia</a></li>
-          </ul>
+          <ul class="advice-list" id="latest-advice-list"></ul>
         </div>
         <!-- Suggest advice -->
         <h4>¿Tienes algún consejo?</h4>
-        <form class="advice-form">
-          <input type="text" placeholder="Título del consejo" />
+        <form class="advice-form" id="advice-form">
+          <input
+            type="text"
+            id="advice-title"
+            placeholder="Título del consejo"
+            maxlength="120"
+            required
+          />
           <div id="advice-form-last-row">
-            <input type="text" placeholder="Escribe aquí tu consejo" />
-            <button id="advice-send-button">Enviar</button>
+            <input
+              type="text"
+              id="advice-desc"
+              placeholder="Escribe aquí tu consejo"
+              required
+            />
+            <button id="advice-send-button" type="submit">Enviar</button>
           </div>
         </form>
+
         <!-- Calendar -->
         <img src="img/calendario.png" alt="calendario" id="calendar-img" />
       </aside>

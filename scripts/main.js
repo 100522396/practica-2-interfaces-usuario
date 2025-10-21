@@ -236,3 +236,124 @@ if (btnLogin) {
     window.location.href = "index.html";
   });
 })();
+
+// --- Advice functionality ---
+
+// Load list from localStorage
+function loadAdviceList() {
+  var raw = localStorage.getItem("adviceList");
+  if (!raw) return [];
+  try {
+    return JSON.parse(raw);
+  } catch (e) {
+    return [];
+  }
+}
+
+// Save lista to localStorage
+function saveAdviceList(list) {
+  localStorage.setItem("adviceList", JSON.stringify(list));
+}
+
+// We generate a unique ID for each advice based on timestamp + random
+function adviceID() {
+  return String(Date.now()) + Math.random().toString(16).slice(2);
+}
+
+// Add a new advice to the list
+function addAdvice(title, description, author) {
+  var list = loadAdviceList();
+  var item = {
+    id: adviceID(),
+    title: String(title || "").trim(),
+    description: String(description || "").trim(),
+    author: String(author || "Anónimo").trim(),
+    createdAt: Date.now(),
+  };
+  list.unshift(item);
+  saveAdviceList(list);
+  return item;
+}
+
+// Get last three advices
+function getLastThreeAdvice() {
+  var list = loadAdviceList();
+  return list.slice(0, 3);
+}
+
+// Render section with last three advices
+function renderLatestAdvice() {
+  var listEl = document.getElementById("latest-advice-list");
+  if (!listEl) return;
+
+  var last3 = getLastThreeAdvice();
+  listEl.innerHTML = "";
+
+  if (last3.length === 0) {
+    var li = document.createElement("li");
+    li.textContent = "Aún no hay consejos.";
+    listEl.appendChild(li);
+    return;
+  }
+
+  for (var i = 0; i < last3.length; i++) {
+    var item = last3[i];
+    var li2 = document.createElement("li");
+    var a = document.createElement("a");
+    // Not a real page
+    a.href = "advice.html?id=" + encodeURIComponent(item.id);
+    a.textContent = item.title;
+    li2.appendChild(a);
+    listEl.appendChild(li2);
+  }
+}
+
+// Initialize advice form
+function initAdviceForm() {
+  var form = document.getElementById("advice-form");
+  if (!form) return;
+
+  var titleEl = document.getElementById("advice-title");
+  var descEl = document.getElementById("advice-desc");
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+
+    var title = titleEl && titleEl.value ? titleEl.value.trim() : "";
+    var description = descEl && descEl.value ? descEl.value.trim() : "";
+
+    // Validations
+    if (title.length < 15) {
+      alert("El título debe tener al menos 15 caracteres.");
+      if (titleEl) titleEl.focus();
+      return;
+    }
+    if (description.length < 30) {
+      alert("La descripción debe tener al menos 30 caracteres.");
+      if (descEl) descEl.focus();
+      return;
+    }
+
+    // Get the author from logged user
+    var author = "Anónimo";
+    var raw = localStorage.getItem("authUser");
+    if (raw) {
+      try {
+        var u = JSON.parse(raw);
+        author = u.username || u.name || "Anónimo";
+      } catch (e) {}
+    }
+
+    addAdvice(title, description, author);
+
+    renderLatestAdvice();
+
+    if (titleEl) titleEl.value = "";
+    if (descEl) descEl.value = "";
+    if (titleEl) titleEl.focus();
+
+    alert("Consejo añadido.");
+  });
+}
+renderLatestAdvice();
+initAdviceForm();
