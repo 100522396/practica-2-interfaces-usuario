@@ -29,9 +29,9 @@ function isValidLogin(u) {
 function isStrongPassword(pw) {
   if (!pw || pw.length < 8) return false;
   var twoDigits = (pw.match(/\d/g) || []).length >= 2;
-  var hasUpper  = /[A-Z]/.test(pw);
-  var hasLower  = /[a-z]/.test(pw);
-  var hasSpecial= /[^A-Za-z0-9]/.test(pw);
+  var hasUpper = /[A-Z]/.test(pw);
+  var hasLower = /[a-z]/.test(pw);
+  var hasSpecial = /[^A-Za-z0-9]/.test(pw);
   return twoDigits && hasUpper && hasLower && hasSpecial;
 }
 
@@ -47,7 +47,7 @@ function isValidAvatar(file) {
 var form = document.getElementById("register-form");
 if (form) {
   var btnSubmit = document.getElementById("btn-register");
-  var privacy   = document.getElementById("privacy");
+  var privacy = document.getElementById("privacy");
 
   // Disabledd until checked
   if (privacy && btnSubmit) {
@@ -66,25 +66,26 @@ if (form) {
   form.addEventListener("submit", function (ev) {
     ev.preventDefault();
 
-    var nameEl     = document.getElementById("reg-name");
-    var surnameEl  = document.getElementById("reg-surname");
-    var emailEl    = document.getElementById("reg-email");
-    var email2El   = document.getElementById("reg-email2");
-    var birthEl    = document.getElementById("birthdate");
-    var userEl     = document.getElementById("reg-username");
-    var passEl     = document.getElementById("reg-password");
-    var avatarEl   = document.getElementById("reg-avatar");
+    var nameEl = document.getElementById("reg-name");
+    var surnameEl = document.getElementById("reg-surname");
+    var emailEl = document.getElementById("reg-email");
+    var email2El = document.getElementById("reg-email2");
+    var birthEl = document.getElementById("birthdate");
+    var userEl = document.getElementById("reg-username");
+    var passEl = document.getElementById("reg-password");
+    var avatarEl = document.getElementById("reg-avatar");
 
-    var name     = nameEl ? nameEl.value.trim() : "";
-    var surname  = surnameEl ? surnameEl.value.trim() : "";
-    var email    = emailEl ? emailEl.value.trim() : "";
-    var email2   = email2El ? email2El.value.trim() : "";
-    var birth    = birthEl ? birthEl.value : "";
+    var name = nameEl ? nameEl.value.trim() : "";
+    var surname = surnameEl ? surnameEl.value.trim() : "";
+    var email = emailEl ? emailEl.value.trim() : "";
+    var email2 = email2El ? email2El.value.trim() : "";
+    var birth = birthEl ? birthEl.value : "";
     var username = userEl ? userEl.value.trim() : "";
     var password = passEl ? passEl.value : "";
-    var avatarFile = (avatarEl && avatarEl.files && avatarEl.files.length > 0)
-    ? avatarEl.files[0]
-    : null;
+    var avatarFile =
+      avatarEl && avatarEl.files && avatarEl.files.length > 0
+        ? avatarEl.files[0]
+        : null;
 
     // Validations
     if (name.length < 3) {
@@ -112,7 +113,9 @@ if (form) {
       return;
     }
     if (!isStrongPassword(password)) {
-      alert("La contraseña debe tener 8+ caracteres, 2 dígitos, 1 carácter especial, 1 mayúscula y 1 minúscula.");
+      alert(
+        "La contraseña debe tener 8+ caracteres, 2 dígitos, 1 carácter especial, 1 mayúscula y 1 minúscula."
+      );
       return;
     }
     if (!isValidAvatar(avatarFile)) {
@@ -128,30 +131,30 @@ if (form) {
         return;
       }
     }
-// Leer imagen -> Data URL y guardar
-  var reader = new FileReader();
-  reader.onload = function (e) {
-    var newUser = {
-      name: name,
-      surname: surname,
-      email: email,
-      birthdate: birth,
-      username: username,
-      password: password,
-      createdAt: Date.now(),          // <-- aquí faltaba una coma
-      avatarDataUrl: e.target.result  // <-- data URL de la imagen
+    // Convert user avatar to DataURL
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var newUser = {
+        name: name,
+        surname: surname,
+        email: email,
+        birthdate: birth,
+        username: username,
+        password: password,
+        createdAt: Date.now(),
+        avatarDataUrl: e.target.result,
+      };
+
+      users.push(newUser);
+      Auth.setUsers(users);
+      Auth.setAuthUser(newUser);
+
+      alert("Registro realizado correctamente.");
+      window.location.href = "logged.html";
     };
-
-    users.push(newUser);
-    Auth.setUsers(users);
-    Auth.setAuthUser(newUser);
-
-    alert("Registro realizado correctamente.");
-    window.location.href = "logged.html";
-  };
-  reader.onerror = function () {
-    alert("No se pudo leer la imagen. Inténtalo de nuevo.");
-  };
-  reader.readAsDataURL(avatarFile);
-});
+    reader.onerror = function () {
+      alert("No se pudo leer la imagen. Inténtalo de nuevo.");
+    };
+    reader.readAsDataURL(avatarFile);
+  });
 }

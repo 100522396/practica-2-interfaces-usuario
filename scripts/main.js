@@ -186,7 +186,7 @@ if (btnLogin) {
 
 (function showUsername() {
   const nameEl = document.getElementById("profile-name");
-  const picEl  = document.getElementById("profile-pic");
+  const picEl = document.getElementById("profile-pic");
   if (!nameEl) return;
 
   // Get current user from localStorage
@@ -202,13 +202,6 @@ if (btnLogin) {
     if (user.avatarDataUrl) {
       picEl.src = user.avatarDataUrl;
       picEl.alt = (user.username || "Usuario") + " - foto de perfil";
-    } else {
-      // Fallback si el usuario aún no tiene imagen
-      picEl.src = "img/default-avatar.png"; // crea este recurso o cambia la ruta
-      picEl.alt = "Foto de perfil por defecto";
     }
   }
 })();
-
-//add picture
-
