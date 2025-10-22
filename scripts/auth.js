@@ -1,8 +1,7 @@
 var Auth = {
   KEYS: {
     USERS: "users",
-    AUTH:  "authUser",
-    REM:   "rememberMe"
+    AUTH: "authUser",
   },
 
   readJSON: function (key, fallback) {
@@ -38,5 +37,5 @@ var Auth = {
   isValidEmail: function (email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
-  }
+  },
 };

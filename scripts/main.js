@@ -206,6 +206,18 @@ if (btnLogin) {
   }
 })();
 
+// Automaticly kicked of logged.html if not logged in
+(function guardLoggedPage() {
+  if (location.pathname.endsWith("logged.html")) {
+    try {
+      const raw = localStorage.getItem("authUser");
+      if (!raw) location.href = "index.html";
+    } catch (_) {
+      location.href = "index.html";
+    }
+  }
+})();
+
 // --- Logout functionality ---
 (function initLogout() {
   const btnLogout = document.getElementById("btn-logout");
@@ -418,11 +430,11 @@ initAdviceForm();
     return /^\d{3}$/.test(String(s || "").trim());
   }
 
-  // ---- Submit (Comprar) ----
+  // ---- Submit ----
   form.addEventListener("submit", function (ev) {
     ev.preventDefault();
 
-    // Validaciones del enunciado
+    // Validations
     if (!isMinLen3(nameEl.value)) {
       alert("El nombre completo debe tener al menos 3 caracteres.");
       nameEl.focus();

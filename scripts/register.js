@@ -10,7 +10,6 @@ function isValidSurname(s) {
   return true;
 }
 
-// AÑADIR CALENDARIO POPUP
 function isRealBirthdate(iso) {
   if (!iso) return false;
   var d = new Date(iso);
