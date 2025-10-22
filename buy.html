@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -59,33 +59,75 @@
 
       <!-- Right: purchase form -->
       <aside>
-        <form class="buy-form" action="index.html">
+        <form id="buy-form" class="buy-form">
           <h2>Formulario de compra</h2>
-          <input type="text" placeholder="Nombre" />
-          <input type="text" placeholder="Apellidos" />
+          <!-- Complete name -->
+          <label for="buyer-name">Nombre completo</label>
+          <input
+            type="text"
+            id="buyer-name"
+            placeholder="Nombre y apellidos"
+            required
+          />
 
+          <!-- Mail -->
+          <label for="buyer-email">Correo electrónico</label>
+          <input
+            type="email"
+            id="buyer-email"
+            placeholder="nombre@dominio.com"
+            required
+          />
+
+          <!-- Card type -->
           <label for="card-type">Tipo de tarjeta</label>
-          <select id="card-type" name="card">
-            <option value="Visa">Visa</option>
-            <option value="Mastercard">Mastercard</option>
+          <select id="card-type" required>
+            <option value="">Selecciona</option>
+            <option value="visa">Visa</option>
+            <option value="mc">Mastercard</option>
+            <option value="amex">American Express</option>
           </select>
 
-          <input type="text" placeholder="Número de tarjeta" />
-          <input type="text" placeholder="Nombre del titular de la tarjeta" />
+          <!-- Card number -->
+          <label for="card-number">Número de tarjeta*</label>
+          <input
+            type="text"
+            id="card-number"
+            inputmode="numeric"
+            placeholder="Solo dígitos"
+            required
+          />
 
-          <div class="card-expire-cvv">
-            <div class="date-input">
-              <label for="expire-date">Fecha de caducidad</label>
-              <input type="date" id="expire-date" />
-            </div>
-            <input type="text" placeholder="Código CVV" />
-          </div>
+          <!-- Name -->
+          <label for="card-holder">Titular de la tarjeta</label>
+          <input
+            type="text"
+            id="card-holder"
+            placeholder="Nombre Titular"
+            required
+          />
 
-          <div class="form-buttons">
-            <a href="index.html">Comprar</a>
-            <a href="buy.html">Borrar</a>
+          <!-- Expire date -->
+          <label for="card-expiry">Fecha de caducidad</label>
+          <!-- We use input type = month to popup a calendar -->
+          <input type="month" id="card-expiry" required />
+
+          <!-- CVV -->
+          <label for="card-cvv">CVV</label>
+          <input
+            type="text"
+            id="card-cvv"
+            inputmode="numeric"
+            placeholder="3 dígitos"
+            required
+          />
+
+          <div class="buy-actions">
+            <button id="btn-buy" type="submit">Comprar</button>
+            <button id="btn-clear" type="button">Borrar</button>
           </div>
         </form>
+        
       </aside>
     </main>
 

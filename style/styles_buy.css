@@ -61,62 +61,103 @@ aside h2 {
   padding: 0;
 }
 
-/* Form */
+/* Buy form*/
+
 .buy-form {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   gap: 1rem;
+  padding: 1rem;
 }
-.buy-form input {
+
+.buy-form h2 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.buy-form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.buy-form input,
+.buy-form select {
+  width: 95%;
   height: 3rem;
   border: 2px solid #ccc;
   border-radius: 1rem;
+  background: #fbfcff;
+  padding: 0 0.75rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
+
+.buy-form input:hover,
+.buy-form select:hover {
+  border-color: #757474;
+}
+.buy-form input:focus,
+.buy-form select:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.15);
+}
+
 #card-type {
-  height: 2rem;
-  width: fit-content;
-  border-radius: 10px;
+  height: 3rem;            
+  border-radius: 1rem;
+  appearance: none;
   background: #fbfcff;
 }
 
-/* Last row */
-.card-expire-cvv {
+.buy-actions {
+  margin-top: 0.5rem;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-end;
-}
-
-.date-input {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   gap: 1rem;
-}
-
-/* Buttons */
-.form-buttons {
-  margin-top: 1rem;
-  display: flex;
   justify-content: space-evenly;
 }
-.buy-form a {
-  display: inline-block;
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
-  background: white;
-  padding: 1rem;
+
+/* Botones */
+#btn-buy,
+#btn-clear {
+  min-width: 8rem;
+  height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
   border: 2px solid #ccc;
-  border-radius: 0.5rem;
-  transition: background 0.2s ease;
+  background: #fff;
+  color: #000;
+  transition: transform 0.15s ease;
 }
 
-.buy-form a:hover {
-  background: rgb(234, 244, 225);
+#btn-buy {
+  border-color: #0ea5e9;
+  background: #0ea5e9;
+  color: #fff;
 }
+#btn-buy:hover {
+  transform: scale(1.03);
+  background: #0c93cc;
+  border-color: #0c93cc;
+}
+
+#btn-clear:hover {
+  transform: scale(1.03);
+  background: #f5f5f5;
+  border-color: #bdbdbd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .buy-main {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 @media (max-width: 768px) {
   .buy-main {

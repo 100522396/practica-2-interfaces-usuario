@@ -357,3 +357,122 @@ function initAdviceForm() {
 }
 renderLatestAdvice();
 initAdviceForm();
+
+// --- Buy formulary logic ---
+
+(function initBuyFormValidation() {
+  const form = document.getElementById("buy-form");
+  if (!form) return;
+
+  const nameEl = document.getElementById("buyer-name");
+  const emailEl = document.getElementById("buyer-email");
+  const typeEl = document.getElementById("card-type");
+  const numEl = document.getElementById("card-number");
+  const holderEl = document.getElementById("card-holder");
+  const expEl = document.getElementById("card-expiry");
+  const cvvEl = document.getElementById("card-cvv");
+  const btnClear = document.getElementById("btn-clear");
+
+  function isMinLen3(s) {
+    return String(s || "").trim().length >= 3;
+  }
+
+  function isEmail(s) {
+    // mail regex
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(s || "").trim());
+  }
+
+  function isCardType(v) {
+    return v === "visa" || v === "mc" || v === "amex";
+  }
+
+  function digitsOnly(s) {
+    return String(s || "").replace(/\D+/g, "");
+  }
+
+  function isCardNumberValid(s) {
+    const d = digitsOnly(s);
+    // valid lenghts: 13, 15, 16, 19
+    return (
+      d.length === 13 || d.length === 15 || d.length === 16 || d.length === 19
+    );
+  }
+
+  function isNotExpired(value) {
+    if (!value) return false;
+
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth() + 1; // 1..12
+
+    const parts = value.split("-");
+    const year = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10);
+
+    if (year > currentYear) return true;
+    if (year === currentYear && month >= currentMonth) return true;
+    return false;
+  }
+
+  function isCVV3(s) {
+    return /^\d{3}$/.test(String(s || "").trim());
+  }
+
+  // ---- Submit (Comprar) ----
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+
+    // Validaciones del enunciado
+    if (!isMinLen3(nameEl.value)) {
+      alert("El nombre completo debe tener al menos 3 caracteres.");
+      nameEl.focus();
+      return;
+    }
+    if (!isEmail(emailEl.value)) {
+      alert("Introduce un correo electrónico válido (nombre@dominio.ext).");
+      emailEl.focus();
+      return;
+    }
+    if (!isCardType(typeEl.value)) {
+      alert(
+        "Selecciona un tipo de tarjeta: Visa, Mastercard o American Express."
+      );
+      typeEl.focus();
+      return;
+    }
+    if (!isCardNumberValid(numEl.value)) {
+      alert("Número de tarjeta no válido. Debe tener 13, 15, 16 o 19 dígitos.");
+      numEl.focus();
+      return;
+    }
+    if (!isMinLen3(holderEl.value)) {
+      alert("El nombre del titular debe tener al menos 3 caracteres.");
+      holderEl.focus();
+      return;
+    }
+    if (!isNotExpired(expEl.value)) {
+      alert("La fecha de caducidad no puede estar expirada.");
+      expEl.focus();
+      return;
+    }
+    if (!isCVV3(cvvEl.value)) {
+      alert("El CVV debe tener 3 dígitos.");
+      cvvEl.focus();
+      return;
+    }
+
+    // if all validations passes we simulate a successful purchase
+    alert("Compra realizada");
+    form.reset();
+    typeEl.value = "";
+  });
+
+  // clear button
+  if (btnClear) {
+    btnClear.addEventListener("click", function () {
+      form.reset();
+      typeEl.value = "";
+      nameEl.focus();
+    });
+  }
+})();
