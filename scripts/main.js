@@ -410,21 +410,23 @@ initAdviceForm();
     );
   }
 
-  function isNotExpired(value) {
-    if (!value) return false;
+function isNotExpired(value) {
+  if (!value) return false;
 
-    const today = new Date();
-    const currentYear = today.getFullYear();
-    const currentMonth = today.getMonth() + 1; // 1..12
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = today.getMonth() + 1; // 1..12
 
-    const parts = value.split("-");
-    const year = parseInt(parts[0], 10);
-    const month = parseInt(parts[1], 10);
+  // we only care about the month and the year
+  const [yyStr, mmStr] = value.split("-");
+  const year = parseInt(yyStr, 10);
+  const month = parseInt(mmStr, 10);
 
-    if (year > currentYear) return true;
-    if (year === currentYear && month >= currentMonth) return true;
-    return false;
-  }
+  if (year > currentYear) return true;
+  if (year === currentYear && month >= currentMonth) return true;
+  return false;
+}
+
 
   function isCVV3(s) {
     return /^\d{3}$/.test(String(s || "").trim());
